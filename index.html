@@ -100,6 +100,9 @@ b { font-weight: 700; }
 .prin b { font-size: 19px; line-height: 1.5; }
 .prin span { font-size: 15px; color: #c4bfb5; line-height: 1.8; }
 
+.index-h { display: grid; gap: 12px; max-width: 40em; margin-bottom: -44px; }
+.index-h h2 { font-size: clamp(24px, 2.6vw, 32px); font-weight: 700; letter-spacing: -.02em; color: var(--acc); }
+.index-h p { font-size: clamp(17px, 1.7vw, 20px); line-height: 1.6; color: var(--soft); }
 .index { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
 .index a { display: grid; gap: 4px; text-decoration: none; }
 .index .thumb { position: relative; aspect-ratio: 4 / 5; border-radius: 14px; background: var(--studio); overflow: hidden; display: grid; place-items: center; margin-bottom: 12px; transition: transform .6s cubic-bezier(.3,.7,0,1), box-shadow .6s; }
@@ -110,7 +113,9 @@ b { font-weight: 700; }
 .index a:hover .thumb { transform: translateY(-6px); box-shadow: 0 24px 50px -24px rgba(60,45,30,.35); }
 .index a:hover .thumb > img { transform: scale(1.05); }
 .index i { color: var(--acc); }
+.index i em { margin-left: 10px; font-family: var(--sans); font-style: normal; font-weight: 700; font-size: 14px; letter-spacing: 0; }
 .index b { font-size: 16px; }
+.index span:last-child { line-height: 1.5; }
 .index span:last-child { font-size: 14px; color: var(--dim); }
 @media (prefers-reduced-motion: reduce) { .index .thumb, .index .thumb img { transition: none; } }
 @media (max-width: 860px) {
@@ -124,7 +129,8 @@ b { font-weight: 700; }
 .head { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 32px; }
 .no { display: grid; align-content: start; gap: 2px; }
 .no b { font-size: clamp(64px, 8vw, 112px); font-weight: 200; line-height: .9; letter-spacing: -.04em; color: var(--acc); font-variant-numeric: tabular-nums; }
-.head .eyebrow { color: var(--acc); }
+.head .eyebrow { font-family: var(--sans); font-size: clamp(16px, 1.6vw, 19px); font-weight: 500; letter-spacing: -.01em; line-height: 1.5; color: var(--acc); }
+.head .eyebrow b { font-weight: 800; }
 .head h2 { margin-top: 14px; font-size: clamp(27px, 3.5vw, 44px); font-weight: 500; line-height: 1.4; letter-spacing: -.025em; max-width: 22em; }
 .head .sub { margin-top: 16px; font-size: 18px; color: var(--soft); }
 .stage { aspect-ratio: 16 / 10; border-radius: 22px; }
@@ -254,11 +260,15 @@ b { font-weight: 700; }
       <li><i>03</i><b>그럴듯한 결과 뒤의 가정을 확인합니다</b><span>우유 키트의 개봉 가정을 되묻고, LiDAR 시제품의 목적을 바로잡았습니다.</span></li>
     </ol>
   </div>
+  <div class="index-h">
+    <h2>이 원칙으로 만든 결과물</h2>
+    <p>앱·제품·서비스·영상으로 형태는 다르지만, 네 작업 모두 제가 정한 문제에서 출발해 AI와 구현하고 직접 확인하며 고쳤습니다.</p>
+  </div>
   <ol class="index" aria-label="사례 목록">
-    <li><a href="#ink"><span class="thumb"><img src="assets/still-ink.png" alt=""></span><i>01</i><b>손끝노트</b><span>macOS 필기 앱</span></a></li>
-    <li><a href="#milk"><span class="thumb photo"><img src="assets/still-milk.png" alt=""></span><i>02</i><b>동결응축 우유 키트</b><span>제품 설계 · 개념 CAD</span></a></li>
-    <li><a href="#lidar"><span class="thumb"><img src="assets/still-lidar.png" alt=""></span><i>03</i><b>LiDAR 공간 서비스</b><span>서비스 기획 · 시제품</span></a></li>
-    <li><a href="#film"><span class="thumb"><span class="phone sm"><img src="assets/film-loop-poster.jpg" alt=""></span></span><i>04</i><b>인문학 콘텐츠</b><span>118.33초 세로 영상</span></a></li>
+    <li><a href="#ink"><span class="thumb"><img src="assets/still-ink.png" alt=""></span><i>01<em>필기 앱 제작</em></i><b>손끝노트</b><span>수식도 내 글씨 그대로 남기는 노트</span></a></li>
+    <li><a href="#milk"><span class="thumb photo"><img src="assets/still-milk.png" alt=""></span><i>02<em>제품 설계</em></i><b>동결응축 우유 키트</b><span>얼린 우유팩을 붙잡아 주는 전용 기구</span></a></li>
+    <li><a href="#lidar"><span class="thumb"><img src="assets/still-lidar.png" alt=""></span><i>03<em>서비스 기획</em></i><b>LiDAR 공간 서비스</b><span>매물을 실제 공간 그대로 확인하는 서비스</span></a></li>
+    <li><a href="#film"><span class="thumb"><span class="phone sm"><img src="assets/film-loop-poster.jpg" alt=""></span></span><i>04<em>영상 제작</em></i><b>인문학 콘텐츠</b><span>‘시선’을 세 공간으로 보여 주는 영상</span></a></li>
   </ol>
 </section>
 
@@ -267,9 +277,9 @@ b { font-weight: 700; }
   <div class="head">
     <p class="no"><span>No.</span><b>01</b></p>
     <div>
-      <p class="eyebrow">손끝노트 · macOS 필기 앱</p>
+      <p class="eyebrow"><b>필기 앱 제작</b> · 수식도 내 글씨 그대로 남기는 노트</p>
       <h2 id="ink-h">노트북으로 필기할 때, 손글씨 노트를 바로 옆에서 이어 쓰고 싶었습니다.</h2>
-      <p class="sub">Mac 트랙패드를 입력판으로 쓰는 macOS 필기 앱을 구현했습니다.</p>
+      <p class="sub">Mac 트랙패드를 입력판으로 쓰는 macOS 필기 앱, 손끝노트를 구현했습니다.</p>
     </div>
   </div>
   <figure class="show">
@@ -311,9 +321,9 @@ b { font-weight: 700; }
   <div class="head">
     <p class="no"><span>No.</span><b>02</b></p>
     <div>
-      <p class="eyebrow">라떼 제조용 동결응축 우유 만들기 키트 · 제품 설계</p>
+      <p class="eyebrow"><b>제품 설계</b> · 얼린 우유팩을 붙잡아 주는 전용 기구</p>
       <h2 id="milk-h">시중에 없는 동결응축 우유 기구를, 완성도 있게 만들고 싶었습니다.</h2>
-      <p class="sub">개인용 키트에서 매장용 공정까지, 개념 CAD와 3D 분해 시뮬레이터로 구현했습니다.</p>
+      <p class="sub">개인용 키트에서 매장용 공정까지, 「라떼 제조용 동결응축 우유 만들기 키트」를 개념 CAD와 3D 분해 시뮬레이터로 구현했습니다.</p>
     </div>
   </div>
   <figure class="show">
@@ -351,9 +361,9 @@ b { font-weight: 700; }
   <div class="head">
     <p class="no"><span>No.</span><b>03</b></p>
     <div>
-      <p class="eyebrow">LiDAR 공간 서비스 · 서비스 기획</p>
+      <p class="eyebrow"><b>서비스 기획</b> · 매물을 실제 공간 그대로 확인하는 서비스</p>
       <h2 id="lidar-h">부동산 현장의 어려움에서 시작해, 공간을 미리 확인하는 서비스를 구체화하고 싶었습니다.</h2>
-      <p class="sub">보기 좋은 화면보다 스캔과 현장 절차를 먼저 두고, 서비스 시제품과 스캔 소스를 만들었습니다.</p>
+      <p class="sub">보기 좋은 화면보다 iPhone LiDAR 스캔과 현장 절차를 먼저 두고, 서비스 시제품과 스캔 소스를 만들었습니다.</p>
     </div>
   </div>
   <figure class="show">
@@ -390,9 +400,9 @@ b { font-weight: 700; }
   <div class="head">
     <p class="no"><span>No.</span><b>04</b></p>
     <div>
-      <p class="eyebrow">인문학 콘텐츠 · 신세계 지식향연 미션</p>
+      <p class="eyebrow"><b>영상 제작</b> · ‘시선’을 세 공간으로 보여 주는 영상</p>
       <h2 id="film-h">설명은 돕되, 느끼는 것은 관객에게 남기는 영상을 만들고 싶었습니다.</h2>
-      <p class="sub">시점·자막·목소리·쉼을 직접 골라 118.33초 세로 영상을 완성했습니다.</p>
+      <p class="sub">신세계 지식향연 미션으로, 시점·자막·목소리·쉼을 직접 골라 118.33초 세로 영상을 완성했습니다.</p>
     </div>
   </div>
   <figure class="show">
