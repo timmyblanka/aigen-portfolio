@@ -201,6 +201,25 @@ b { font-weight: 700; }
 .contact h2 { font-size: clamp(30px, 4.4vw, 56px); font-weight: 500; line-height: 1.35; letter-spacing: -.025em; max-width: 16em; }
 .contact .mail code { font-family: var(--mono); font-size: 19px; font-weight: 500; user-select: all; color: #e58a5f; }
 .contact .links a { color: #f1eee8; }
+
+/* who and where: the name and SK AIGEN in the accent, the name set large */
+.top .mark { font-family: var(--sans); font-size: 17px; font-weight: 700; letter-spacing: .02em; color: var(--acc); text-transform: none; }
+.brand { font-family: var(--sans); font-weight: 800; letter-spacing: .04em; color: var(--acc); }
+.hello .eyebrow { font-size: 14px; }
+.hello .name { font-size: clamp(30px, 3.6vw, 44px); font-weight: 800; letter-spacing: .02em; line-height: 1; color: var(--acc); margin-bottom: -6px; }
+
+/* 손끝노트: the exported page beside two more things actually written on the trackpad */
+.evidence.ink-set { justify-self: stretch; width: auto; padding-left: calc(9rem + 32px); }
+.ink-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); grid-template-rows: 1fr 1fr; gap: 12px; }
+.ink-grid .ev-img { border-radius: 18px; padding: 22px 26px; }
+.ink-grid .ev-img.main { grid-row: 1 / 3; }
+.ink-grid .ev-img > img { width: 100%; max-height: 360px; object-fit: contain; }
+.ink-grid .ev-img:not(.main) > img { max-height: 130px; }
+@media (max-width: 960px) {
+  .evidence.ink-set { padding-left: 0; }
+  .ink-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .ink-grid .ev-img.main { grid-row: auto; grid-column: 1 / -1; }
+}
 </style></head><body>
 <div class="page">
 
@@ -213,9 +232,10 @@ b { font-weight: 700; }
 
 <section class="cover" aria-labelledby="hello-h">
   <div class="hello">
-    <p class="eyebrow">SK AIGEN 지원 포트폴리오 · 2026.11</p>
+    <p class="eyebrow"><b class="brand">SK AIGEN</b> 지원 포트폴리오 · 2026.11</p>
+    <p class="name">서경원</p>
     <h1 id="hello-h"><span class="lt">불편에서 출발해</span><br><span class="bd">사용 방식을 설계합니다.</span></h1>
-    <p class="sub">서경원 · 생활에서 느낀 불편을 제품과 서비스의 질문으로 바꾸고, AI와 구현한 결과를 직접 살펴보며 고칩니다.</p>
+    <p class="sub">생활에서 느낀 불편을 제품과 서비스의 질문으로 바꾸고, AI와 구현한 결과를 직접 살펴보며 고칩니다.</p>
   </div>
   <ul class="cv" aria-label="학력과 경험">
     <li><b>건국대학교</b><span>일어교육 전공 · 경제학 복수전공</span></li>
@@ -271,9 +291,13 @@ b { font-weight: 700; }
       <div><dt>AI</dt><dd>터치 입력, 획 보정, 렌더링, 저장 구현 (Codex)</dd></div>
     </dl>
   </div>
-  <figure class="evidence">
-    <div class="ev-img"><img src="assets/ink-export.png" alt="손끝노트에서 내보낸 손글씨 수식 페이지" loading="lazy"></div>
-    <figcaption>실제 앱에서 내보낸 페이지. 글자를 인식하지 않고 획 그대로 남깁니다.</figcaption>
+  <figure class="evidence ink-set">
+    <div class="ink-grid">
+      <div class="ev-img main"><img src="assets/ink-export.png" alt="손끝노트에서 내보낸 손글씨 수식 페이지" loading="lazy"></div>
+      <div class="ev-img"><img src="assets/ink-mpk.svg" alt="트랙패드로 쓴 한계생산 MPK 식" loading="lazy"></div>
+      <div class="ev-img"><img src="assets/ink-tfp.svg" alt="트랙패드로 쓴 총요소생산성(TFP) 메모" loading="lazy"></div>
+    </div>
+    <figcaption>실제로 트랙패드에 쓴 필기 · 수학 식, 경제 수업의 한계생산(MPK) 식과 총요소생산성(TFP) 메모. 글자를 인식하지 않고 획 그대로 남깁니다.</figcaption>
   </figure>
 </section>
 
@@ -407,7 +431,7 @@ b { font-weight: 700; }
 </section>
 
 <section class="quiet" aria-labelledby="aigen-h">
-  <p class="eyebrow">아이젠에서</p>
+  <p class="eyebrow"><b class="brand">SK AIGEN</b>에서</p>
   <h2 id="aigen-h">질문을 검증 가능한 실험으로.</h2>
   <p class="sub">사용 방식을 정하고 시제품을 고쳐 온 경험을 팀에 보태고, 그 결과가 실제 사용자의 문제를 푸는지 확인하는 방법을 배우고 싶습니다.</p>
   <ul class="rows">
