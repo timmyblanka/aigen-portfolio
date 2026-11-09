@@ -12,7 +12,7 @@
   color-scheme: light;
 }
 * { box-sizing: border-box; }
-html { background: var(--paper); scroll-behavior: smooth; scroll-snap-type: y proximity; }
+html { background: var(--paper); scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 400 16px/1.7 var(--sans); word-break: keep-all; -webkit-font-smoothing: antialiased; }
 h1, h2, h3 { text-wrap: balance; margin: 0; }
 p, li, dd, figcaption, blockquote { text-wrap: pretty; }
@@ -53,9 +53,7 @@ html:not(.ready) #scene { opacity: 0; }
 
 main { position: relative; z-index: 2; }
 .beat { min-height: 100lvh; display: flex; align-items: center; padding: 96px clamp(16px, 5vw, 64px); pointer-events: none; }
-.beat { scroll-snap-align: center; }
-.flat { scroll-snap-align: start; }
-.beat[data-beat="outro"] { min-height: 40lvh; scroll-snap-align: none; }
+.beat[data-beat="outro"] { min-height: 40lvh; }
 .card { pointer-events: auto; width: min(460px, 40vw); background: var(--card); border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 22px; padding: 30px 32px; box-shadow: 0 24px 60px -36px rgba(40, 32, 20, 0.35); }
 .card.bare { background: none; border: 0; box-shadow: none; padding: 0; width: min(520px, 42vw); }
 .card > * + * { margin-top: 14px; }
@@ -196,7 +194,6 @@ h1 .bd { font-weight: 800; }
 .tag.station:hover { background: rgba(250, 249, 246, 0.9); }
 @media (max-width: 760px) {
   .case .card { width: 100%; padding: 20px 18px; }
-  .beat { scroll-snap-align: end; }
 }
 
 .steps summary { cursor: pointer; list-style: none; margin-top: 18px; }
