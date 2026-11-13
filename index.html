@@ -29,6 +29,9 @@ img { display: block; max-width: 100%; }
 .tag.pill { background: rgba(250, 249, 246, 0.92); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; transform-origin: 0 50%; }
 .tag.pill b { display: inline; color: var(--acc); margin-right: 6px; }
 .tag.pill span { display: inline; color: var(--ink); font-size: 13px; }
+.tag.part b, .tag.part span { transition: color 0.15s; }
+.tag.part.hot b { color: var(--acc); }
+.tag.part.hot span { color: var(--ink); }
 .tag.station { text-align: center; }
 .tag.station i { display: block; font: 500 12px var(--mono); color: var(--acc); font-style: normal; letter-spacing: 0.06em; }
 .tag.station b { font-size: 15px; }
@@ -172,6 +175,7 @@ h1 .bd { font-weight: 800; }
 .case .card > * + * { margin-top: 10px; }
 .case h2 { font-size: clamp(21px, 1.9vw, 27px); }
 .case .sub { font-size: 15.5px; }
+.case .def { font-size: 15px; font-weight: 600; line-height: 1.55; color: var(--ink); padding-left: 10px; border-left: 2px solid var(--acc); }
 .case .kicker { margin-top: 18px !important; }
 .case .did { gap: 8px; }
 .case .did li { grid-template-columns: 24px 1fr; }
@@ -205,6 +209,13 @@ h1 .bd { font-weight: 800; }
   .steps[open] summary::after { content: " −"; }
   .index-wrap .index { display: none; }
   .case .sub { font-size: 14.5px; }
+  .case .eyebrow span { display: none; }
+  /* phones: the one-line definition and the title carry the card; the scene gets the room */
+  .case .sub, .case .cap { display: none; }
+  #milk .cap { display: block; }
+  .case .said { display: none; }
+  .case h2 { font-size: 19px; }
+  .case .def { font-size: 14px; }
   .case .said p { font-size: 15px; }
 }
 
@@ -279,7 +290,8 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
 <section class="beat case" data-beat="ink" id="ink" aria-labelledby="ink-h">
   <div class="card">
     <p class="no"><span>No.</span><b>01</b></p>
-    <p class="eyebrow"><b>필기 앱 제작</b> · 수식도 내 글씨 그대로 남기는 노트</p>
+    <p class="eyebrow"><b>필기 앱 제작</b><span> · 수식도 내 글씨 그대로 남기는 노트</span></p>
+    <p class="def">노트북만 들고 수업을 듣는 사람이 수식과 기호를 손글씨로 남기기 위한 macOS 필기 앱입니다.</p>
     <h2 id="ink-h">노트북으로 필기할 때, 손글씨 노트를 바로 옆에서 이어 쓰고 싶었습니다.</h2>
     <p class="sub">Mac 트랙패드를 입력판으로 쓰는 macOS 필기 앱, 손끝노트를 구현했습니다.</p>
     <img class="still" src="assets/still-ink.png" alt="">
@@ -306,7 +318,8 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
 <section class="beat case" data-beat="milk" id="milk" aria-labelledby="milk-h">
   <div class="card">
     <p class="no"><span>No.</span><b>02</b></p>
-    <p class="eyebrow"><b>제품 설계</b> · 얼린 우유팩을 붙잡아 주는 전용 기구</p>
+    <p class="eyebrow"><b>제품 설계</b><span> · 얼린 우유팩을 붙잡아 주는 전용 기구</span></p>
+    <p class="def">집과 카페에서 라떼용 동결응축 우유를 번거롭지 않게 만들기 위한 제품⁠·⁠창업 기획입니다.</p>
     <h2 id="milk-h">시중에 없는 동결응축 우유 기구를, 완성도&nbsp;있게 만들고 싶었습니다.</h2>
     <p class="sub">「라떼 제조용 동결응축 우유 만들기 키트」⁠를 설계했습니다. 개인용 키트부터 매장용 공정까지, 개념 CAD와 3D 분해 시뮬레이터로 구현했습니다.</p>
     <img class="still" src="assets/still-milk.png" alt="">
@@ -324,7 +337,7 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
         <div><dt>AI</dt><dd>구조⁠·⁠치수⁠·⁠경제성 계산 (ChatGPT), 3D 분해 (Claude)</dd></div>
       </dl>
     </details>
-    <p class="cap">개인용 02 · 부품마다 제가 요구한 기능이 붙어 있습니다 · <a href="milk-kit.html#m03" target="_blank" rel="noopener">매장용 03까지 직접 분해해 보기 ↗</a></p>
+    <p class="cap">키트를 누르면 펼치고 다시 조립할 수 있습니다 · 개인용 02 · 부품마다 제가 요구한 기능이 붙어 있습니다 · <a href="milk-kit.html#m03" target="_blank" rel="noopener">매장용 03까지 직접 분해해 보기 ↗</a></p>
   </div>
 </section>
 
@@ -332,7 +345,8 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
 <section class="beat case" data-beat="lidar" id="lidar" aria-labelledby="lidar-h">
   <div class="card">
     <p class="no"><span>No.</span><b>03</b></p>
-    <p class="eyebrow"><b>서비스 기획</b> · 매물을 실제 공간 그대로 확인하는 서비스</p>
+    <p class="eyebrow"><b>서비스 기획</b><span> · 매물을 실제 공간 그대로 확인하는 서비스</span></p>
+    <p class="def">집을 구하는 사람이 방문 전에 매물의 실제 공간을 확인하기 위한 부동산 서비스 기획입니다.</p>
     <h2 id="lidar-h">매물의 실제 공간을 미리 확인할 수 있게 하고 싶었습니다.</h2>
     <p class="sub">보기 좋은 화면보다 iPhone LiDAR 스캔과 현장 절차를 먼저 두고, 서비스 시제품과 스캔 소스를 만들었습니다.</p>
     <img class="still" src="assets/still-lidar.png" alt="">
@@ -341,16 +355,16 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
       <li><b>문제 가설</b><span>매물 정보가 실제와 달라 손해를 봤다는 후기에서 출발했습니다.</span></li>
       <li><b>개념 제안</b><span>iPhone LiDAR로 한 번 스캔한 공간을 둘러보기와 SNS 소개에 함께 쓰자고 제안했습니다.</span></li>
       <li><b>목적 정정</b><span>가구 배치로 흐르던 AI 결과를 매물 확인으로 되돌렸습니다.</span></li>
-      <li><b>우선순위</b><span>마케팅 화면보다 실제 스캔을 먼저 하도록 순서를 정했습니다.</span></li>
+      <li><b>우선순위</b><span>마케팅 화면보다 실제 스캔 구현을 먼저 하도록 순서를 정했습니다.</span></li>
     </ol></details>
     <details class="more"><summary>사양 보기</summary>
       <dl class="spec">
-        <div><dt>형태</dt><dd>서비스 시제품 · RoomPlan Swift 소스 3개</dd></div>
+        <div><dt>형태</dt><dd>서비스 개념 시제품(샘플 공간) · RoomPlan Swift 소스 3개</dd></div>
         <div><dt>흐름</dt><dd>한 번 스캔 → 매물 확인 → 둘러보기 → SNS 소개</dd></div>
         <div><dt>AI</dt><dd>시제품 화면, 스캔 소스, 공간 확인 노트 (Codex)</dd></div>
       </dl>
     </details>
-    <p class="cap">iPhone이 공간을 한 바퀴 돌며 점을 모으고, 같은 스캔이 세로형 SNS 소개 화면이 됩니다 · 서비스 개념 도해</p>
+    <p class="cap">샘플 거실로 만든 서비스 개념 시연입니다 · iPhone이 한 바퀴 돌며 점을 모으면 창문과 출입구 위치를 방문 전에 확인할 수 있고, 같은 스캔이 세로형 SNS 소개 화면이 됩니다</p>
   </div>
 </section>
 
@@ -358,7 +372,8 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
 <section class="beat case" data-beat="film" id="film" aria-labelledby="film-h">
   <div class="card">
     <p class="no"><span>No.</span><b>04</b></p>
-    <p class="eyebrow"><b>영상 제작</b> · 그림 앞에 오래 머물게 하는 안내</p>
+    <p class="eyebrow"><b>영상 제작</b><span> · 그림 앞에 오래 머물게 하는 안내</span></p>
+    <p class="def">작품 안내가 어디까지 말해야 하는지를 묻는, 미술관 관람객을 위한 세로형 미디어 프로젝트입니다.</p>
     <h2 id="film-h">작품을 볼 때 중요한 것은 정해진 감정보다 스스로&nbsp;느낄&nbsp;여백이라고 생각했습니다.</h2>
     <p class="sub">직접 고른 네 가지를 근거로, 이 생각을 118.33초 세로 영상에 담았습니다.</p>
     <img class="still" src="assets/film-loop-poster.jpg" alt="">
@@ -389,21 +404,24 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
   <p class="eyebrow">경험</p>
   <h2 id="exp-h">AI 작업 이전부터, 듣는 사람에 맞춰 기준을 바꿔 왔습니다.</h2>
   <ul class="rows">
-    <li><p class="who">산업설비기업 PEMS<span>영업기획 인턴 · 베트남</span></p><div class="what"><p>구매 담당은 발주일⁠·⁠수량으로, 기술영업은 사용 위치⁠·⁠기능으로 부품을 찾았습니다.</p><p class="became">관련 설비와 용도를 검색 태그로 넣었습니다. 기술영업 담당자와 반복 검토해 실제 사양에 맞췄습니다.</p></div></li>
+    <li><p class="who">Hult Prize 2024<span>캠퍼스대회 · 팀</span></p><div class="what"><p>취미키트 정기배송 서비스에 시장성과 사회적 필요의 근거가 약하다는 내부 피드백이 있었습니다.</p><p class="became">이를 적극 반영해 식품손실 예방 플랫폼으로 방향을 바꿨습니다. 식품 스타트업 2곳과 교내 창업지원기관의 자문으로 근거를 보완했습니다.</p><p class="fine">2024.02.02 교내대회 최우수상</p></div></li>
+    <li><p class="who">산업설비기업 PEMS<span>영업기획 인턴 · 베트남</span></p><div class="what"><p>약 600개 부품 자료에서 구매 담당은 발주일⁠·⁠수량으로, 기술영업은 사용 위치⁠·⁠기능으로 부품을 찾았습니다.</p><p class="became">관련 설비와 용도를 검색 태그로 넣었습니다. 기술영업 담당자와 반복 검토해 실제 사양에 맞췄습니다.</p></div></li>
     <li><p class="who">미즈호은행<span>산업리서치 인턴</span></p><div class="what"><p>반도체 교육자료가 수출액⁠·⁠수익률 중심이라 품목별 특징이 안 보인다는 의견을 받았습니다.</p><p class="became">8대 제조공정 기준으로 다시 짰고, 사내 교육자료로 채택됐습니다.</p></div></li>
     <li><p class="who">미즈호은행<span>고객사 IR 자료 공동 번역</span></p><div class="what"><p>같은 용어를 다르게 옮겨 취합 뒤 맞추는 데 시간이 들었습니다.</p><p class="became">용어부터 맞추고 교차 검토하자고 제안해, 기한 안에 완성했습니다.</p></div></li>
-    <li><p class="who">Hult Prize 2024<span>캠퍼스대회 · 팀</span></p><div class="what"><p>취미키트 정기배송 서비스에 시장성과 사회적 필요의 근거가 약하다는 내부 피드백이 있었습니다.</p><p class="became">이를 적극 반영해 식품손실 예방 플랫폼으로 방향을 바꿨습니다. 식품 스타트업 2곳과 교내 창업지원기관의 자문으로 근거를 보완했습니다.</p><p class="fine">2024.02.02 교내대회 최우수상</p></div></li>
   </ul>
 </section>
 
 <section class="quiet" aria-labelledby="aigen-h">
   <p class="eyebrow"><b class="brand">SK AIGEN</b>에서</p>
-  <h2 id="aigen-h">질문을 검증할 수 있는 실험으로 바꾸고 싶습니다.</h2>
-  <p class="sub">사용 방식을 정하고 시제품을 고쳐 온 경험을 팀에 보태겠습니다. 그 결과가 실제 사용자의 문제를 푸는지 확인하는 방법은 배우고 싶습니다.</p>
+  <h2 id="aigen-h">불편을 겪는 사람이 분명한 문제를 골라, 실제로 쓰이는 서비스까지 만들어 보고 싶습니다.</h2>
+  <p class="sub">창업과 사회⁠·⁠공공 분야의 프로젝트에 참여하면서, 지금까지 만든 것들을 실제 사용자 앞에 내놓는 단계까지 이어 가고 싶습니다.</p>
   <ul class="rows">
-    <li><p class="who">불편을 사용 순서로</p><div class="what"><p>팀의 아이디어를 입력⁠·⁠동작⁠·⁠결과가 보이는 요구사항과 짧은 시연으로 정리하겠습니다.</p></div></li>
-    <li><p class="who">가정과 우선순위 점검</p><div class="what"><p>구현 전에 확인할 조건과 먼저 시험할 기능을 팀과 구분하겠습니다.</p></div></li>
-    <li><p class="who">첫 시도</p><div class="what"><p>최근 매물을 본 사람의 경험부터 듣겠습니다. 촬영을 허락받은 한 공간에서 사진⁠·⁠평면도⁠·⁠LiDAR 모델을 비교할 조건을 작게 설계하겠습니다.</p></div></li>
+    <li><p class="who">팀에서 맡을 역할</p><div class="what"><p>아이디어가 말로만 오갈 때 가장 먼저 시제품을 만들어 오는 사람이 되겠습니다. 팀의 생각을 입력⁠·⁠동작⁠·⁠결과가 보이는 요구사항과 짧은 시연으로 정리해, 같은 화면을 보며 논의하게 하겠습니다.</p></div></li>
+    <li><p class="who">참여하고 싶은 프로젝트</p><div class="what"><p>Hult Prize에서 식품손실을, LiDAR 기획에서 매물 정보 왜곡을 다뤘듯이 생활 속 손해를 줄이는 서비스를 만들고 싶습니다. 사회적 필요와 사업으로 지속될 수 있는지를 함께 따지겠습니다.</p></div></li>
+    <li><p class="who">손끝노트<span>사용성 개선과 출시</span></p><div class="what"><p>저 혼자 쓰며 고쳐 온 필기 앱을 다른 사람도 쓸 수 있게 다듬어 출시해 보겠습니다. 노트북으로 수업을 듣는 학생들에게 먼저 써 보게 하고, 막히는 지점부터 고치겠습니다.</p></div></li>
+    <li><p class="who">동결응축 우유 키트<span>사용자 모집과 시장 검토</span></p><div class="what"><p>개념 설계까지 온 키트를 시제품으로 만들고, 집과 카페에서 써 볼 사용자를 모집하겠습니다. 실제로 쓰이는 모습을 보고 시장에 적용할 수 있는지 검토하겠습니다.</p></div></li>
+    <li><p class="who">LiDAR 공간 서비스<span>가설 확인</span></p><div class="what"><p>최근 매물을 본 사람들에게 어디에서 오해가 생겼는지 묻겠습니다. 허락받은 한 공간을 사진, 평면도, LiDAR 모델로 보여 주고 이해가 어떻게 달라지는지 비교해, 평면도로 충분하다면 LiDAR 확대는 보류하겠습니다.</p></div></li>
+    <li><p class="who">배우고 싶은 것</p><div class="what"><p>답을 유도하지 않고 불편을 묻는 인터뷰 방법과, 원하는 결과만 해석하지 않도록 비교 조건을 정하는 법을 배우고 싶습니다.</p></div></li>
   </ul>
 </section>
 
