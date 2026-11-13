@@ -1,4 +1,4 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>서경원 포트폴리오</title><meta name="description" content="불편을 쓸모로 바꿉니다. 서경원의 SK AIGEN 지원 포트폴리오."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"><style>/* B: one fixed 3D workbench behind the page; the text scrolls over it in cards, beat by beat. */
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>서경원 포트폴리오</title><meta name="description" content="불편을 쓸모로 바꿉니다. 서경원의 SK AIGEN 지원 포트폴리오."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"><style>/* B: one fixed 3D workbench behind the page; the text scrolls over it in cards, beat by beat. */
 :root {
   --paper: #f1efe9;
   --card: rgba(246, 244, 239, 0.95);
@@ -255,6 +255,17 @@ html.rail-idle .rail:not(:hover) { opacity: 0; }
   .case h2 { font-size: 25px; }
   .case .def { font-size: 14.5px; margin-top: 8px; }
 }
+
+/* v20 · one weight per role: titles 800, the defining line 700, labels 600–700, reading text 400, anything you can press 800 */
+.hero h1 .bd, .case h2, .quiet h2, .contact h2, .index-title { font-weight: 800; }
+.case .def { font-weight: 700; }
+.case .sub, .did span, .prin span, .rows .what, .cap { font-weight: 400; }
+.did b, .prin b, .rows .who, .spec dt { font-weight: 700; }
+.rows .who span { font-weight: 500; }
+.kicker, .card h2.kicker { font-weight: 600; }
+.more summary, .steps summary, .store a, .play-full, .top .to-contact, .mail button, .links a, .cap a, .index b, .tag.station b, .rail span { font-weight: 800; }
+.more summary { font-size: 14px; }
+.cue { font-weight: 700; color: var(--ink); }
 </style></head><body>
 <canvas id="scene" aria-hidden="true"></canvas>
 <div id="tags" aria-hidden="true"><svg class="leaders"></svg></div>
