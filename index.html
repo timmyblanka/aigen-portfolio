@@ -238,12 +238,28 @@ html.pointing, html.pointing body { cursor: pointer; }
 /* while the camera flies to a project, the text steps aside and comes back when it lands */
 main .card, #tags, .flat { transition: opacity 0.35s ease; }
 html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue { opacity: 0; pointer-events: none; }
+
+/* v17 · calmer cards: the project's name as the title, one definition, one sentence of intent */
+.top { justify-content: flex-end; }
+.rail { transition: opacity 0.6s; }
+html.rail-idle .rail:not(:hover) { opacity: 0; }
+.case h2 { font-size: clamp(28px, 2.5vw, 36px); line-height: 1.25; letter-spacing: -0.02em; margin-top: 2px; }
+.case .eyebrow { margin-bottom: 0; }
+.case .def { border-left: 0; padding-left: 0; font-size: 16px; font-weight: 600; margin-top: 12px; }
+.case .sub { font-size: 15px; color: var(--muted); margin-top: 8px; }
+.case .steps { margin-top: 18px; }
+.store { margin-top: 14px; }
+.store a { display: inline-block; font: 700 14px var(--sans); color: var(--acc); border: 1.5px solid var(--acc); border-radius: 999px; padding: 10px 18px; text-decoration: none; }
+.store a:hover { background: var(--acc); color: #fff; }
+@media (max-width: 759px) {
+  .case h2 { font-size: 25px; }
+  .case .def { font-size: 14.5px; margin-top: 8px; }
+}
 </style></head><body>
 <canvas id="scene" aria-hidden="true"></canvas>
 <div id="tags" aria-hidden="true"><svg class="leaders"></svg></div>
 
 <header class="top">
-  <span class="mark">서경원</span>
   <a class="to-contact" href="#contact">연락</a>
 </header>
 <nav class="rail" aria-label="사례"><a href="#ink"><span>01 손끝노트</span></a><a href="#milk"><span>02 우유 키트</span></a><a href="#lidar"><span>03 LiDAR</span></a><a href="#film"><span>04 영상</span></a></nav>
@@ -290,10 +306,10 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
 <section class="beat case" data-beat="ink" id="ink" aria-labelledby="ink-h">
   <div class="card">
     <p class="no"><span>No.</span><b>01</b></p>
-    <p class="eyebrow"><b>필기 앱 제작</b><span> · 수식도 내 글씨 그대로 남기는 노트</span></p>
+    <p class="eyebrow"><b>필기 앱 제작</b></p>
+    <h2 id="ink-h">손끝노트</h2>
     <p class="def">노트북만 들고 수업을 듣는 사람이 수식과 기호를 손글씨로 남기기 위한 macOS 필기 앱입니다.</p>
-    <h2 id="ink-h">노트북으로 필기할 때, 손글씨 노트를 바로 옆에서 이어 쓰고 싶었습니다.</h2>
-    <p class="sub">Mac 트랙패드를 입력판으로 쓰는 macOS 필기 앱, 손끝노트를 구현했습니다.</p>
+    <p class="sub">노트북으로 필기할 때, 손글씨 노트를 바로 옆에서 이어 쓰고 싶었습니다.</p>
     <img class="still" src="assets/still-ink.png" alt="">
     <details class="steps" open><summary class="kicker">제가 한 일</summary>
     <ol class="did">
@@ -318,10 +334,10 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
 <section class="beat case" data-beat="milk" id="milk" aria-labelledby="milk-h">
   <div class="card">
     <p class="no"><span>No.</span><b>02</b></p>
-    <p class="eyebrow"><b>제품 설계</b><span> · 얼린 우유팩을 붙잡아 주는 전용 기구</span></p>
+    <p class="eyebrow"><b>제품 설계</b></p>
+    <h2 id="milk-h">동결응축 우유 키트</h2>
     <p class="def">집과 카페에서 라떼용 동결응축 우유를 번거롭지 않게 만들기 위한 제품⁠·⁠창업 기획입니다.</p>
-    <h2 id="milk-h">시중에 없는 동결응축 우유 기구를, 완성도&nbsp;있게 만들고 싶었습니다.</h2>
-    <p class="sub">「라떼 제조용 동결응축 우유 만들기 키트」⁠를 설계했습니다. 개인용 키트부터 매장용 공정까지, 개념 CAD와 3D 분해 시뮬레이터로 구현했습니다.</p>
+    <p class="sub">시중에 없는 기구라 완성도 있게 만들고 싶었고, 「라떼 제조용 동결응축 우유 만들기 키트」⁠라는 이름으로 개인용부터 매장용 공정까지 설계했습니다.</p>
     <img class="still" src="assets/still-milk.png" alt="">
     <details class="steps" open><summary class="kicker">제가 한 일</summary>
     <ol class="did">
@@ -337,7 +353,8 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
         <div><dt>AI</dt><dd>구조⁠·⁠치수⁠·⁠경제성 계산 (ChatGPT), 3D 분해 (Claude)</dd></div>
       </dl>
     </details>
-    <p class="cap">키트를 누르면 펼치고 다시 조립할 수 있습니다 · 개인용 02 · 부품마다 제가 요구한 기능이 붙어 있습니다 · <a href="milk-kit.html#m03" target="_blank" rel="noopener">매장용 03까지 직접 분해해 보기 ↗</a></p>
+    <p class="store"><a href="milk-kit.html#m03" target="_blank" rel="noopener">매장용 03까지 직접 분해해 보기 ↗</a></p>
+    <p class="cap">키트를 누르면 펼치고 다시 조립할 수 있습니다 · 개인용 02 · 부품마다 제가 요구한 기능이 붙어 있습니다</p>
   </div>
 </section>
 
@@ -345,10 +362,10 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
 <section class="beat case" data-beat="lidar" id="lidar" aria-labelledby="lidar-h">
   <div class="card">
     <p class="no"><span>No.</span><b>03</b></p>
-    <p class="eyebrow"><b>서비스 기획</b><span> · 매물을 실제 공간 그대로 확인하는 서비스</span></p>
+    <p class="eyebrow"><b>서비스 기획</b></p>
+    <h2 id="lidar-h">LiDAR 공간 서비스</h2>
     <p class="def">집을 구하는 사람이 방문 전에 매물의 실제 공간을 확인하기 위한 부동산 서비스 기획입니다.</p>
-    <h2 id="lidar-h">매물의 실제 공간을 미리 확인할 수 있게 하고 싶었습니다.</h2>
-    <p class="sub">보기 좋은 화면보다 iPhone LiDAR 스캔과 현장 절차를 먼저 두고, 서비스 시제품과 스캔 소스를 만들었습니다.</p>
+    <p class="sub">매물의 실제 공간을 미리 확인할 수 있게 하고 싶었습니다.</p>
     <img class="still" src="assets/still-lidar.png" alt="">
     <details class="steps" open><summary class="kicker">제가 한 일</summary>
     <ol class="did">
@@ -372,10 +389,10 @@ html.flying main .card, html.flying #tags, html.flying .flat, html.flying .cue {
 <section class="beat case" data-beat="film" id="film" aria-labelledby="film-h">
   <div class="card">
     <p class="no"><span>No.</span><b>04</b></p>
-    <p class="eyebrow"><b>영상 제작</b><span> · 그림 앞에 오래 머물게 하는 안내</span></p>
+    <p class="eyebrow"><b>영상 제작</b></p>
+    <h2 id="film-h">인문학 콘텐츠 영상</h2>
     <p class="def">작품 안내가 어디까지 말해야 하는지를 묻는, 미술관 관람객을 위한 세로형 미디어 프로젝트입니다.</p>
-    <h2 id="film-h">작품을 볼 때 중요한 것은 정해진 감정보다 스스로&nbsp;느낄&nbsp;여백이라고 생각했습니다.</h2>
-    <p class="sub">직접 고른 네 가지를 근거로, 이 생각을 118.33초 세로 영상에 담았습니다.</p>
+    <p class="sub">작품을 볼 때 중요한 것은 정해진 감정보다 스스로 느낄 여백이라고 생각했고, 이 생각을 118.33초 세로 영상에 담았습니다.</p>
     <img class="still" src="assets/film-loop-poster.jpg" alt="">
     <details class="steps" open><summary class="kicker">제가 한 일</summary>
     <ol class="did">
